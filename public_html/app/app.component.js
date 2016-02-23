@@ -24,20 +24,17 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
                 function AppComponent(http) {
                     var _this = this;
                     this.miurl = 'http://localhost:9999/mensaje';
-                    this.hola = '';
                     this.http = http;
-                    this.http.get('http://localhost:9999/mensaje')
-                        .subscribe(function (res) {
+                    this.http.get('http://localhost:9999/mensaje').subscribe(function (res) {
                         //Esta es como una funcion
                         _this.mensaje = res.json(), console.log(' mensajes encontrados: ' + _this.mensaje.length);
                         console.log('Segundo:' + _this.mensaje[1].cuerpo);
-                        _this.mensaje[0].titulo;
                     });
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>Mi primer app con angular muy basico :)</h1>'
+                        templateUrl: 'templates/mensaje.html'
                     }), 
                     __metadata('design:paramtypes', [http_1.Http])
                 ], AppComponent);
